@@ -1,0 +1,22 @@
+<h3>Update <%= @player.player_name %>'s information</h3>
+
+<p><%= @player.player_name %></p>
+
+<form method="post" action='/players/<%=@player.id%>'>
+<input name="_method" type="hidden" value="patch">
+
+<input name="player_id" type="hidden" id="player_id" value="<%= @player.id %>">
+
+<div class="form-group">
+  <input type="text" id="player_name" name="player_name" placeholder="<%= @player.player_name%>">
+</div>
+
+<button type="submit" class="btn btn-primary">Update</button>
+</form>
+
+<form method="post" action='/player/delete'>
+  <input name="_method" type="hidden" value="delete">
+  <input name="player_id" type="hidden" id="player_id" value="<%= @player.id %>">
+
+  <button type="submit" class="btn btn-warning">Delete Player</button>
+</form>

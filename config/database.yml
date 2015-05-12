@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: curling_league_development
+
+test:
+  adapter: postgresql
+  database: curling_league_test

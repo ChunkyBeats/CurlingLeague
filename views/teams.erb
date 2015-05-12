@@ -1,0 +1,20 @@
+<h3>Here are all of the teams in the League:</h3>
+
+<% if @teams.any?() %>
+  <ul><% @teams.each do |team| %>
+    <li><a href="/teams/<%= team.id %>"><%= team.team_name() %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are currently no teams in the league.  Wow, you suck.</p>
+<% end %>
+
+<form action="/teams/add" method="post">
+  <div class="form-group">
+  <label for="team_name">Team Name:</label>
+  <input class="form-control" type="text" name="team_name" id="team_name">
+</div>
+<p>
+  <button type="submit" class="btn btn-success">+ Add</button>
+</p>
+</form>

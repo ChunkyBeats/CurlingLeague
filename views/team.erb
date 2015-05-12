@@ -1,0 +1,21 @@
+<h3>These are the players on <%= @team.team_name %></h3>
+
+<% if @players.any?() %>
+  <ul><% @players.each() do |player| %>
+    <li><a href="/player/<%= player.id %>"><%= player.player_name %></a></li>
+  <% end %></ul>
+<% else %>
+  <p>Better Get Recruiting</p>
+<% end %>
+
+<form action="/players/add" method="post">
+  <input name="team_id" type="hidden" id="team_id" value="<%= @team.id %>">
+
+  <div class="form-group">
+    <label for="player_name">Enter Curler's Name</label>
+    <input id="player_name" name="player_name" class="form-control" type="text">
+  </div>
+  <p>
+  <button type="submit" class="btn btn-success">Add Curler</button>
+</p>
+</form>
